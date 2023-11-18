@@ -1,16 +1,12 @@
-import scraper_functions
-import FileUtilities
+from PIL import Image
 import customtkinter as ctk
 import subprocess
 import os
-from tkinter import PhotoImage
-from PIL import Image
-from os import listdir
-from os.path import isfile, join
+
+import scraper_functions
+import FileUtilities
+
 FILEBROWSER_PATH = os.path.join(os.getenv('WINDIR'), 'explorer.exe')
-
-
-# Show table of save files, open save file location button
 
 
 class App(ctk.CTk):
@@ -47,8 +43,7 @@ class App(ctk.CTk):
                 self.display_to_console(f'Scraping Operation ({self.op_index}): {entry}', new_op=True)
                 scraper_functions.run_scraper(entry, self, pages_to_search)
 
-        def view_data_files():
-            # explorer would choke on forward slashes
+        def open_data_in_file_explorer():
             path = f'{FileUtilities.get_dataset_path()}'
             path = os.path.normpath(path)
 
@@ -82,7 +77,7 @@ class App(ctk.CTk):
         image_path = f'{FileUtilities.get_resource_folder()}file_icon.png'
         file_button_image = ctk.CTkImage(light_image=Image.open(image_path), dark_image=Image.open(image_path), size=(20, 20))
 
-        view_data_button = ctk.CTkButton(container, text='', width=30, height=30, image=file_button_image, command=view_data_files, fg_color='gray14', hover_color='gray14')
+        view_data_button = ctk.CTkButton(container, text='', width=30, height=30, image=file_button_image, command=open_data_in_file_explorer, fg_color='gray14', hover_color='gray14')
         view_data_button.grid(row=2, column=3, sticky='e', ipadx=0, ipady=0)
 
         self.console = ctk.CTkTextbox(container, fg_color='gray20')
