@@ -22,9 +22,6 @@ def start_gui():
     app = GUI(root)
 
     console.initialize_console()
-    
-    console.log_header('First console header!')
-    console.log('First console message!')
 
     root.mainloop()
 

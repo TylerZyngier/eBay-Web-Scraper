@@ -5,14 +5,9 @@ I use this to build datasets to practice data science/market analysis
 I'm still working to add more features and improve the UX.
 
 # Usage
+Check requirements for packages to install
 
+If you are on Windows, the requirements also have the commands for setting up a venv and installing the needed packages
 
-# Python packages used in this project:
-- os
-- json
-- Subprocess
-- Dataclasses
-- CustomTKinter
-- Playwright
-- Selectolax
-- Pillow
+Run the main.py file to start the GUI scraper.
+Be aware, there are probably many bugs and some things aren't implemented yet. I need some more time for that @~@

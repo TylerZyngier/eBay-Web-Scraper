@@ -34,7 +34,7 @@ def open_browser(playwright: Playwright, search_term: str, pages=1) -> None:
     current_page_number = 1
 
     # Loop through desired amount of product pages
-    while current_page_number <= pages:
+    while int(current_page_number) <= int(pages):
         # The browser is already on page 1 so no need reload the url
         if current_page_number != 1:
             page.goto(current_page_url)
